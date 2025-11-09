@@ -1,6 +1,11 @@
 import express from "express";
 // import { getAllUsers, getUser, updateUser, creteUser, deleteUser } from "./controllers/userControllers.js";
 import { userRouter } from "./router/userRouter.js";
+import { productsRouter } from "./router/productsRouter.js";
+import { ordersRouter } from "./router/ordersRouter.js";
+import { categoriesRouter } from "./router/categoriesRouter.js";
+
+
 
 const app = express();
 const PORT = 3003;
@@ -10,6 +15,9 @@ app.get("/", (req, res) => {
   console.log(`Server is running on http://localhost:${PORT}/`);
 });
 app.use("/users", userRouter);
+app.use("/product", productsRouter);
+app.use("/orders", ordersRouter);
+app.use("/categories", categoriesRouter);
 // app.get("/users", getAllUsers);
 // app.post("/users", creteUser);
 // app.get("/users/:id", getUser);
